@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/quadratic_calc/db" VERSION="20260703" COMMENT="XMLDB file for Moodle blocks/quadratic_calc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_quadratic_calc_history" COMMENT="History of calculations">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="a" TYPE="number" LENGTH="20" NOTNULL="true" SEQUENCE="false" DECIMALS="10" COMMENT="coefficient a"/>
+        <FIELD NAME="b" TYPE="number" LENGTH="20" NOTNULL="true" SEQUENCE="false" DECIMALS="10" COMMENT="coefficient b"/>
+        <FIELD NAME="c" TYPE="number" LENGTH="20" NOTNULL="true" SEQUENCE="false" DECIMALS="10" COMMENT="coefficient c"/>
+        <FIELD NAME="roots" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="roots of quadratic equation (in JSON format)"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="user that requested calculation of quadratic equation"/>
+        <FIELD NAME="createdat" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="creation timestamp in seconds"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="userid_foreignkey" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id" COMMENT="user id foreign key"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

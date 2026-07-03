@@ -1,0 +1,34 @@
+<div class="block_quadratic_calc container">
+    <div class="mb-3">
+        {{{form}}}
+    </div>
+
+    {{#error}}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+    {{/error}}
+
+    {{#rootsset}}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text mb-2">
+                    {{coef_a}}x<sup>2</sup> + {{coef_b}}x + {{coef_c}} = 0
+                </p>
+                {{#hasroots}}
+                    <p class="card-text fw-bold mb-0">
+                        {{#str}} label_roots_list, block_quadratic_calc {{/str}} [{{rootsstring}}]
+                    </p>
+                {{/hasroots}}
+                {{^hasroots}}
+                    <p class="card-text text-muted mb-0">
+                        {{#str}} label_no_real_roots, block_quadratic_calc {{/str}}
+                    </p>
+                {{/hasroots}}
+            </div>
+        </div>
+    {{/rootsset}}
+    <div class="mt-3">
+        <a href="{{historylink}}">{{#str}} link_history, block_quadratic_calc {{/str}}</a>
+    </div>
+</div>

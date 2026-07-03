@@ -1,0 +1,38 @@
+<div class="block_quadratic_calc_history container">
+    {{#error}}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+    {{/error}}
+
+    {{#hasitems}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{#str}} label_history_col_equation, block_quadratic_calc {{/str}}</th>
+                    <th>{{#str}} label_history_col_roots, block_quadratic_calc {{/str}}</th>
+                    <th>{{#str}} label_history_col_date, block_quadratic_calc {{/str}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#items}}
+                <tr>
+                    <td>{{a}}x<sup>2</sup> + {{b}}x + {{c}} = 0</td>
+                    <td>
+                        {{#hasroots}}
+                            [{{rootsstring}}]
+                        {{/hasroots}}
+                        {{^hasroots}}
+                            <span class="text-muted">{{#str}} label_no_real_roots, block_quadratic_calc {{/str}}</span>
+                        {{/hasroots}}
+                    </td>
+                    <td>{{createdat}}</td>
+                </tr>
+                {{/items}}
+            </tbody>
+        </table>
+    {{/hasitems}}
+    {{^hasitems}}
+        <p class="text-muted">{{#str}} label_history_empty, block_quadratic_calc {{/str}}</p>
+    {{/hasitems}}
+</div>
